@@ -1,4 +1,3 @@
-[[study]]
 # chage 명령어란?
 
 
@@ -6,7 +5,7 @@
  \- 시스템에게 로그인한 사용자가 패스워드를 변경해야 하는지를 알려줌
  \- 시스템 관리 명령어이다 보니, root 권한을 가진 사용자만 사용 가능
 
-<br></br>
+
 ## 주요 옵션
 |옵션|내용|
 |----|---|
@@ -19,7 +18,7 @@
 |-W|패스워드 만료 며칠 전 부터 사용자에게 경고 메세지를 보낼지 설정|
 
 
-<br></br>
+
 
 
 ## *1. -l (소문자 L, 지정한 계정의 패스워드 만기 정보 확인)*
@@ -41,7 +40,7 @@ Maximum number of days between password change		: 99999
 Number of days of warning before password expires	: 7
 ```
 
-<br></br>
+
 ## *2. -d (패스워드의 마지막 변경일을 수정)*
 
 - 패스워드의 마지막 변경일을 수정하는 옵션
@@ -85,7 +84,7 @@ Minimum number of days between password change		: 6
 Maximum number of days between password change		: 8000
 Number of days of warning before password expires	: 3
 ```
-<br></br>
+
 ## *3. -E (지정한 계정의 만기일 설정)*
 
 - 지정한 계정의 만기일을 지정
@@ -127,7 +126,7 @@ Minimum number of days between password change		: 15
 Maximum number of days between password change		: 12
 Number of days of warning before password expires	: 10
 ```
-<br></br>
+
 ## *4. -m (패스워드 최소 의무 사용일 수를 지정하는 옵션)*
 
 - 지정한 계정의 패스워드 변경일로부터 최소 며칠이 경과해야 다른 패스워드로 변경할 수 있는지를 지정
@@ -154,7 +153,7 @@ Minimum number of days between password change		: 5
 Maximum number of days between password change		: 15
 Number of days of warning before password expires	: 10
 ```
-<br></br>
+
 ## *5. -M (패스워드 변경 없이 사용할 수 있는 최대 일수 설정)*
 
 - 지정한 계정의 패스워드를 변경 없이 사용할 수 있는 최대 일수를 지정하는 옵션
@@ -181,7 +180,7 @@ Minimum number of days between password change		: 6
 Maximum number of days between password change		: 180
 Number of days of warning before password expires	: 3
 ```
-<br></br>
+
 ## *6. -I (대문자 i, 패스워드 만료 시 비활성화 상태로 유예기간을 지정하는 옵션)*
 
 - 패스워드 만료일 도래 시, 계정이 비활성화 상태로 전환될 때까지의 유예기간을 지정하는 옵션
@@ -215,7 +214,7 @@ Minimum number of days between password change		: 6
 Maximum number of days between password change		: 180
 Number of days of warning before password expires	: 3
 ```
-<br></br>
+
 ## *7. -W(패스워드 만료 며칠 전부터 사용자에게 경고 메시지를 보낼지를 설정)*
 
 - 패스워드 만료 며칠 전부터 사용자에게 패스워드 변경 경고 메시지를 보낼지 설정하는 옵션이다.
@@ -237,7 +236,7 @@ Minimum number of days between password change		: 6
 Maximum number of days between password change		: 180
 Number of days of warning before password expires	: 10
 ```
-<br></br>
+
 ## */etc/shadow 파일과의 연계성*
 
 리눅스의 사용자 정보는 /etc/passwd 파일에 기록되어 있음. 하지만, /etc/passwd 파일의 2번째 필드인 패스워드 항목은 보안상의 문제로 /etc/shadow라는 파일에서 별도로 관리. 왜냐하면 해커들이 crack 툴을 활용하여 실제 패스워드를 알아낼 수 있기 때문.
