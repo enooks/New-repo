@@ -1,3 +1,4 @@
+[[study]]
 # 파일 검사 및 수리 명령어
 
 ## fsck 와 e2fsck
@@ -104,3 +105,9 @@ fsck/e2fsck 명령어 사용 시 ==마운트된== 드라이브에서는 ==절대
 
 ### 4) System debugger when used incorrectly 
 \- 시스템 디버거가 잘못쓰여졌을 때
+
+
+
+
+
+

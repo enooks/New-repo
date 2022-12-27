@@ -1,3 +1,4 @@
+[[study]]
 # crontab 이란?
 
 

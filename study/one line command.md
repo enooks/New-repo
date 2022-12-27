@@ -1,3 +1,4 @@
+[[study]]
 # passwd
 ```shell
 echo "linuxpassword" | passwd --stdin linuxuser

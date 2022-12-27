@@ -1,3 +1,4 @@
+[[study]]
 **/etc/security/limits.conf 에서 특정 사용자 계정의 동시 로그인 수를 제한 할 수 있음**
 
 ## 1. 사용방법

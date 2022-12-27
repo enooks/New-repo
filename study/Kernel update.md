@@ -1,3 +1,4 @@
+[[study]]
 CentOS7 Kenel update
 =======================================
 
@@ -23,7 +24,6 @@ $ yum install yum-plugin-fastestmirror
 ```
 
 위 명령어를 통해 CentOS7 시스템이 업데이트 되고, 모든 패키지가 최신 버전으로 업데이트됨
-<br></br>
 
 ## 1. 커널 버전 확인
 -----------------------
@@ -65,7 +65,7 @@ $ uname -msr
 Linux 5.4.0-1.el7.elrepo.x86_64 x86_64
 ```
 
-<br></br>
+
 ## 2. elrepo 저장소 추가
 ------------------------------------------
 새로운 커널을 **elrepo 저장소**를 통해 설치하려면 먼저 **elrepo 저장소**가 추가되어있어야함
@@ -83,7 +83,7 @@ $ rpm —import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 ```bash
 $ yum install https://www.elrepo.org/elrepo-release-7.0-4.el7.elrepo.noarch.rpm
 ```
-<br></br>
+
 이제 시스템에 **elrepo 저장소**가 성공적으로 등록되었는지 확인
 
 ```bash
@@ -98,7 +98,7 @@ Loading mirror speeds from cached hostfile
 repo id                            repo name                                                              status                                   base/7/x86_64                      CentOS-7 - Base                                                        10,072      
 elrepo                             ELRepo.org Community Enterprise Linux Repository - el7                    150           epel/x86_64                        Extra Packages for Enterprise Linux 7 - x86_64                         13,758        extras/7/x86_64                    CentOS-7 - Extras                                                         512    updates/7/x86_64                   CentOS-7 - Updates                                                      4,135       repolist: 28,627
 ```
-<br></br>
+
 
 ## 3. 새로운 커널 설치
 -----------------------
@@ -110,8 +110,8 @@ $ yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-devel
 >
 > 기본적으로 일반적인 저장소가 활성되어있으나, elrepo에서 최신 커널을 받아와 설치해야 하기 때문에 해당 저장소를 사용한다고 옵션을 통해 명시해 주어야함
 
-<br>
-</br>
+
+
 
 ## 4. 부팅 순서 변경
 ---------------------
@@ -150,7 +150,7 @@ saved_entry=CentOS Linux (5.4.0-1.el7.elrepo.x86_64) 7
 $ reboot
 ```
 
-<br></br>
+
 ## 5. 오래된 커널 제거(Optional)
 ---------------------------------------------
 새로운 커널이 설치되었으니 저장 공간을 위해서 예전 버전의 커널을 삭제

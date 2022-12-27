@@ -1,3 +1,4 @@
+[[study]]
 read -p "id : " id   // 입력된 값을 id 라는 변수로 받음
 
 echo ""

@@ -1,3 +1,4 @@
+[[study]]
 tmux란?
 ==============
 > tmux는 사용자가 단일 단말기 창 또는 원격 터미널 세션 안에서 **여러 별도의 터미널 세션에서 액세스**할 수 있도록 ***여러 가상 콘솔을 다중화***하는데 사용할 수 있는 응용 소프트웨어 이 응용 프로그램은 명령어 인터페이스로부터 다수의 프로그램을 처리하고 유닉스 셸로부터 프로그램을 분리하는 데에 아주 유용
@@ -41,7 +42,7 @@ tmux란?
 - ctrl+a -> n : 다음 윈도우로 이동
 - ctrl+a -> , : 현재 윈도우 이름 바꾸기
 - ctrl+a -> w : 현재 윈도우 목록 나열
-<br></br>
+
 ### Pane
 - ctrl+a -> " : 현재 창을 가로로 나누기
 
@@ -103,7 +104,7 @@ make
 
 make install
 
-# pkill tmux
+pkill tmux
 
 # close your terminal window (flushes cached tmux executable)
 
