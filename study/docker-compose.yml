@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  coredns_internal:
+    image: coredns/coredns
+    container_name: coredns_internal
+    volumes:
+      - ./corefile_internal:/Corefile
+      - ./db:/db
+    read_only: true
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "9153:9153/tcp"
+
+  coredns_external:
+    image: coredns/coredns
+    container_name: coredns_external
+    volumes:
+      - ./corefile_external:/Corefile
+      - ./db:/db
+    read_only: true
+    ports:
+      - "54:54/tcp"
+      - "54:54/udp"
+      - "9154:9154/tcp"
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
