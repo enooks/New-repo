@@ -1,0 +1,152 @@
+# setting -------------------------------------------------------------------------------------------------#
+
+set -g default-terminal "xterm-256color"
+
+## Scroll History
+
+set -g history-limit 10000
+
+  
+
+## show messages for 4 seconds instead
+
+set -g display-time 4000
+
+  
+
+## set first window to index 1 (not 0) to map more to the keyboard layout
+
+set-option -g renumber-windows on
+
+set -g base-index 1
+
+setw -g pane-base-index 1
+
+  
+
+## Make mouse useful, tmux > 2.1 include select, resize pane/window and console wheel scroll
+
+set -g mouse on
+
+  
+
+## Lower escape timing from 500ms to 50ms for quicker response to scroll-buffer access.
+
+set -s escape-time 50
+
+  
+
+## Middle click to paste from the clipboard
+
+unbind-key MouseDown2Pane
+
+bind-key -n MouseDown2Pane run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
+
+  
+
+## Drag to re-order windows
+
+bind-key -n MouseDrag1Status swap-window -t=
+
+  
+
+## Double click on the window list to open a new window
+
+bind-key -n DoubleClick1Status new-window
+
+  
+
+## ETC
+
+setw -g automatic-rename
+
+  
+
+setw -g mode-keys vi
+
+  
+  
+
+# key binding ---------------------------------------------------------------------------------------------#
+
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+  
+
+unbind C-b
+
+bind-key -n C-d detach
+
+set -g prefix C-a
+
+bind-key -r C-a send-prefix
+
+bind-key s set synchronize-panes \; display-message "toggle synchronize-panes"
+
+  
+
+## copy mode like vi
+
+bind Enter copy-mode # enter copy mode
+
+bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
+
+bind-key -T copy-mode-vi 'y' send-keys -X copy-selection-and-cancel
+
+  
+
+## buffer
+
+bind b list-buffers  # list paste buffers
+
+bind p paste-buffer  # paste from the top paste buffer
+
+bind P choose-buffer # choose which buffer to paste from
+
+  
+
+## move pane vi style
+
+bind h select-pane -L
+
+bind j select-pane -D
+
+bind k select-pane -U
+
+bind l select-pane -R
+
+  
+
+## resizing pane
+
+bind -r H resize-pane -L 5
+
+bind -r J resize-pane -D 5
+
+bind -r K resize-pane -U 5
+
+bind -r L resize-pane -R 5
+
+  
+
+## move window vi style
+
+bind -r C-h select-window -t :-
+
+bind -r C-l select-window -t :+
+
+  
+
+# plugin --------------------------------------------------------------------------------------------------#
+
+set -g @plugin 'tmux-plugins/tpm'
+
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+#set -g @plugin 'arcticicestudio/nord-tmux'
+
+  
+
+run '~/.tmux/plugins/tpm/tpm'
+
+#----------------------------------------------------------------------------------------------------------#

@@ -9,7 +9,7 @@ tmux란?
 
 ## Session, Windows, Panes
 
-
+![[Pasted image 20230601101035.png]]
 ### Session
 하나 이상의 윈도우가 있는 독립된 작업 공간
 
@@ -30,12 +30,12 @@ tmux란?
 - tmux a : 마지막 세션으로 들어가기
 - tmux a -t *\<Session Name>* : 특정 세션으로 들어가기
 - tmux 실행 중일때 exit : 세션 종료
-- tmux kill-session -t *\<Session Name>* : 특정 세션 kill
+- tmux kill-session -t *\<Session Name>* -> yes : 특정 세션 kill
+- tmux rename-session -t *<old_name> <new_name>* : 세션 이름 변경 / Session 접속 상태에서 ctrl + a -> $ : Session rename
 
 ### Window
 
 - ctrl+a -> c : 새로운 윈도우 생성
-
 - ctrl+a -> d : 윈도우 닫기
 - ctrl+a -> p : 이전 윈도우로 이동
 - ctrl+a -> n : 다음 윈도우로 이동
@@ -44,7 +44,6 @@ tmux란?
 
 ### Pane
 - ctrl+a -> " : 현재 창을 가로로 나누기
-
 - ctrl+a -> % : 현재 창을 세로로 나누기
 - ctrl+a -> 방향키 : 방향키 방향의 창으로 이동
 - ctrl+a -> z : 현재 창 확대/축소 전환

@@ -54,7 +54,7 @@ mount \[option] \[device] \[directory]
 |remount|해당 파티션을 다시 마운트. 파티션 정보를 바꾸었을 때 사용|
 |loop|loop 디바이스로 마운트 할 때 사용|
 |noatime|파일의 내용을 읽게 되면 Access time이 변경되는데 이 옵션을 사용하면 파일이 변경되기 전까지는 Access Time이 변경 되지 않음|
-*ex) mount -o remount,rw /*
+*e.g.) mount -o remount,rw /*
 
 \* 아무런 옵션 없이 mount 명령어만 실행했을 경우 현재 시스템의 마운트된 정보를 확인할 수 있음
  

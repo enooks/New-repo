@@ -1,16 +1,16 @@
 # passwd
-```shell
+```bash
 echo "linuxpassword" | passwd --stdin linuxuser
 ```
 
 or
 
-```shell
+```bash
 echo -e "linuxpasswordnlinuxpassword" | passwd linuxuser
 ```
 
 # fdisk
 
-```shell
+```bash
 (echo n; echo p; echo3; echo -e "\n" echo -e "\n" echo t; echo -e "\n"; echo 8e; echo w;) | /usr/sbin/fdisk /dev/sda
 ```

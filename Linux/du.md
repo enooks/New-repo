@@ -16,7 +16,7 @@ Linux du 명령어 사용법
 
 1. du 명령어 사용법
 
-\# du [옵션] [위치 또는 파일]
+$ du \[옵션] \[위치 또는 파일]
 
 2. du 명령어 옵션
 
@@ -42,7 +42,7 @@ Linux du 명령어 사용법
 <br>
 
 
-사용법 : du -sh [디렉토리 경로]
+사용법 : du -sh \[디렉토리 경로]
 ```bash
 # du -sh /home/nginx/
 7.2M    /home/nginx/
