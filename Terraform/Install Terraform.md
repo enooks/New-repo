@@ -25,4 +25,3 @@ $ sudo yum -y install terraform
 ```shell-session
 $ terraform -intsall-autocomplete
 ```
-
