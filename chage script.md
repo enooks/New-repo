@@ -27,6 +27,6 @@ do
 done < "$SERVERS_FILE"
 ```
 
-while 문 돌릴때 계속 한 번 밖에 실행되고 끝났는데 ssh '-n' 옵션을 줘서 해결했다.
+while 문 돌릴때 계속 한 번 밖에 실행되고 끝났는데 `ssh '-n'` 옵션을 줘서 해결했다.
 
 /dev/stdin 관련 문제로 확인됨
