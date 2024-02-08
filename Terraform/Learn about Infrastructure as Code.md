@@ -62,7 +62,7 @@ How does Terraform work?
 
 Terraform은 애플리케이션 프로그래밍 인터페이스(API)를 통해 클라우드 플랫폼 및 기타 서비스에서 리소스를 생성하고 관리합니다. 제공업체는 접근 가능한 API를 통해 거의 모든 플랫폼 또는 서비스에서 Terraform이 작동할 수 있도록 지원합니다.
 
-[assets.avif](Learn%20about%20Infrastructure%20as%20Code%20(IaC)%2012452e103af8426eb9633fde6531d694/assets.avif)
+[assets.avif](https://prod-files-secure.s3.us-west-2.amazonaws.com/814d8386-d80b-45c7-bba7-4fb6e602a973/98d677d5-c2c1-4940-a5a8-0ce785bfa218/assets.avif)
 
 Hashicorp와 테라폼 커뮤니티는 이미 다양한 유형의 리소스와 서비스를 관리하기 위해 수천 개의 공급자를 작성해왔습니다. 아마존 웹 서비스(AWS), 애저, 구글 클라우드 플랫폼(GCP), 쿠버네티스, 헬름, 깃허브, 스플렁크, 데이터독 등 공개적으로 사용 가능한 모든 공급자를 테라폼 레지스트리에서 찾을 수 있습니다.
 
