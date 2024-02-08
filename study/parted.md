@@ -54,7 +54,7 @@ Number Start  End    Size   Type    File system   Flags
  1     1049kB 73.4GB 73.4GB primary xfs
 ```
 
-맨 위에 ``3001GB`` 용량으로 보이는 `/dev/sdb` 디스크가 있는 것을 확인할 수 있음
+맨 위에 ``300GB`` 용량으로 보이는 `/dev/sdb` 디스크가 있는 것을 확인할 수 있음
 
 ```bash
 (parted) select /dev/sdb
