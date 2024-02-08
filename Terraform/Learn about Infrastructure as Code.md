@@ -72,7 +72,7 @@ Terraform의 핵심 워크플로우는 세 단계로 구성됩니다.
 - **Plan:** Terraform은 기존 인프라와 사용자 구성을 기반으로 생성, 업데이트 또는 파기할 인프라를 설명하는 실행 계획을 생성합니다.
 - **Apply:** 승인을 받으면 Terraform은 모든 리소스 종속성을 고려하여 제안된 작업을 올바른 순서로 수행합니다. 예를 들어, VPC의 속성을 업데이트하고 해당 VPC의 가상 머신 수를 변경하는 경우, Terraform은 가상 머신을 확장하기 전에 VPC를 다시 생성합니다.
 
-[assets.avif](Learn%20about%20Infrastructure%20as%20Code%20(IaC)%2012452e103af8426eb9633fde6531d694/assets%201.avif)
+![image](https://github.com/enooks/new-repo/assets/104637797/b0595db3-5c65-4e29-9658-a062a4d876bd)
 
 ### 모든 인프라 관리
 
