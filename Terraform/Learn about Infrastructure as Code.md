@@ -96,7 +96,7 @@ Terraform은 구성 가능한 인프라 모음을 정의하는 모듈이라고 �
 
 ### Introduction to Infrastructure as Code with Terraform
 
-![Untitled](Learn%20about%20Infrastructure%20as%20Code%20(IaC)%2012452e103af8426eb9633fde6531d694/Untitled.png)
+![image](https://github.com/enooks/new-repo/assets/104637797/8191906b-1aef-46ab-8804-c7d9a3df5ea0)
 
 Terraform으로 인프라를 배포:
 
@@ -140,7 +140,7 @@ Terraform을 사용하면 멀티 티어 애플리케이션을 위한 인프라�
     1. Test the green environment and identify any errors before promoting it. Your configuration still routes traffic to the blue environment while you test, ensuring near-zero downtime.
     2. Easily roll back to the previous deployment in the event of errors by redirecting all traffic back to the blue environment.
     
-    ![Untitled](Learn%20about%20Infrastructure%20as%20Code%20(IaC)%2012452e103af8426eb9633fde6531d694/Untitled%201.png)
+    ![image](https://github.com/enooks/new-repo/assets/104637797/10353e11-0d3f-4e88-a5c9-e060db9845c4)
     
     기존 운영하던 환경(Blue)에서 업그레이드 환경(Green)으로 버전업 할때
     Load Balancer에서 Blue로 향하는 트래픽을 Green으로 변경해주는 작업을 블루-그린 배포라한다.
