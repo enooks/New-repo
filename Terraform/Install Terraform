@@ -10,7 +10,8 @@ $ sudo yum install -y yum-utils
 
 - Use `yum-config-manager` to add the official HashiCorp Linux repository.
 
-```shell-session
+```
+shell-session
 $ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 ```
 
