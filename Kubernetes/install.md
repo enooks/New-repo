@@ -166,6 +166,23 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kubelet kubeadm kubectl
 ```
 
+위에 내용으로 실행시 error 발생
+찾아보니 24년 3월 기준으로 레거시 레포지토리 apt.kubernetes.io와  yum.kubernetes.io 에 대한 지원을 중단하고,
+pkgs.k8s.io 라는 새로운 레포지토리를 기준으로 패키지를 제공할 것이며, v1.24.0 이상의 버전만 제공
+
+```bash
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.28/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl
+
+버전을 명시하여 repo 설정
+v1.28, v1.29, v1.30 ...
+```
+
 ```bash
 # Set SELinux in permissive mode (effectively disabling it)
 
