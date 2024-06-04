@@ -91,4 +91,9 @@ nmcli> set connection.id '변경할 NAME'
 nmcli> remove ipv4.address 'ip'/'prefix'
 nmcli> remove ipv4.gateway 'gateway_ip'
 nmcli> remove ipv4.dns 'dns_ip'
+
+or
+
+nmcli connection mod uuid 'uuid' -ipv4.address 'ip'
+nmcli connection up 'device_name"
 ```
