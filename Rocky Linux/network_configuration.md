@@ -3,7 +3,7 @@
 ```shell
 nmcli connection show
 
-NAME              UUID                                                             TYPE    DEVICE
+NAME           UUID                                  TYPE      DEVICE
 System ens192  03da7500-2101-c722-2438-d0d006c28c73  ethernet  ens192
 ```
 
