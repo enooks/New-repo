@@ -9,9 +9,6 @@ cri-docker 설치
 2. Docker engine을 사용했지만 v1.24 부터는 cri-dockerd 추가 설치해야함 (컨테이너 런타임이 쿠버네티스와 호환되기 위한 요구 사항인 CRI를 만족하지 않기때문)
 3. kubeadm, kubelet, kubectl install
 
-
-
-
 ## Installation process (Redhat/CentOS)
 
 ### swapoff
@@ -24,10 +21,6 @@ swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
 
 -> `free` 명령어로 확인시 swap쪽 0으로 확인됨
 -> `/etc/fstab` 확인시 swap 줄 주석(#) 처리
-
-
-
-
 
 ### Uninstall old versions
 
@@ -46,10 +39,6 @@ sudo yum remove docker \
 
 -> docker가 미리 설치되어 있으면 삭제해주기
 
-
-
-
-
 ### Set up the repository
 
 ```bash
@@ -62,13 +51,10 @@ sudo yum-config-manager \
 
 -> docker yum repository(저장소) setting
 
-
-
-
-
 ### Install Docker Engine
 
 Latest install
+
 ```bash
 sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
@@ -79,22 +65,18 @@ sudo systemctl start docker
 
 -> docker 최신버전 설치(CentOS/Redhat)
 
-
-
-
-
 ### cri-docker install
 
 k8s version 1.24 (22/05) 이후 kubernetes에서 기본적으로 내부 연결 지원해주던 `dockershim`이 제거가 되어 `cri-docker` 추가 설치하여 k8s 연결
 
 ```bash
-VER=$(curl -s https://api.github.com/repos/Mirantis/cri-dockerd/releases/latest|grep tag_name | cut -d '"' -f 4|sed 's/v//g') 
+VER=$(curl -s https://api.github.com/repos/Mirantis/cri-dockerd/releases/latest|grep tag_name | cut -d '"' -f 4|sed 's/v//g')
 
-echo $VER 
+echo $VER
 
 wget https://github.com/Mirantis/cri-dockerd/releases/download/v${VER}/cri-dockerd-${VER}.amd64.tgz
 
-tar xvf cri-dockerd-${VER}.amd64.tgz 
+tar xvf cri-dockerd-${VER}.amd64.tgz
 
 sudo mv cri-dockerd/cri-dockerd /usr/local/bin/
 
@@ -104,17 +86,17 @@ sudo mv cri-dockerd/cri-dockerd /usr/local/bin/
 
 cri-dockerd --version
 
-wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.service 
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.service
 
-wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.socket 
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.socket
 
-sudo mv cri-docker.socket cri-docker.service /etc/systemd/system/ 
+sudo mv cri-docker.socket cri-docker.service /etc/systemd/system/
 
-sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service 
+sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
 
-sudo systemctl daemon-reload 
+sudo systemctl daemon-reload
 
-sudo systemctl enable cri-docker.service 
+sudo systemctl enable cri-docker.service
 
 sudo systemctl enable --now cri-docker.socket
 
@@ -122,7 +104,7 @@ sudo systemctl enable --now cri-docker.socket
 
 # cri-docker active check
 
-sudo systemctl restart docker && sudo systemctl restart cri-docker 
+sudo systemctl restart docker && sudo systemctl restart cri-docker
 
 sudo systemctl status cri-docker.socket --no-pager
 ```
@@ -130,39 +112,36 @@ sudo systemctl status cri-docker.socket --no-pager
 ```bash
 # docker cgroup change require to systemd
 
-cat <<EOF | sudo tee /etc/docker/daemon.json 
-{ 
-  "exec-opts": ["native.cgroupdriver=systemd"], 
-  "log-driver": "json-file", 
-  "log-opts": { 
-    "max-size": "100m" 
-    }, 
-    "storage-driver": "overlay2" 
+cat <<EOF | sudo tee /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+    },
+    "storage-driver": "overlay2"
 }
 EOF
 
-sudo systemctl restart docker && sudo systemctl restart cri-docker 
+sudo systemctl restart docker && sudo systemctl restart cri-docker
 
 sudo docker info | grep Cgroup
 
 # kernel forwarding
 
-cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf 
-br_netfilter 
-EOF 
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+br_netfilter
+EOF
 
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf 
-net.bridge.bridge-nf-call-ip6tables = 1 
-net.bridge.bridge-nf-call-iptables = 1 
-EOF 
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
 
 sudo sysctl --system
 ```
 
 -> cri-docker 설치 후 설정
-
-
-
 
 ### Kubeadm install
 
@@ -183,12 +162,11 @@ name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
 enabled=1
 gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 exclude=kubelet kubeadm kubectl
-EOF
 ```
 
-``` bash
+```bash
 # Set SELinux in permissive mode (effectively disabling it)
 
 sudo setenforce 0
@@ -208,19 +186,15 @@ Kustomize Version: v4.5.7
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
 ```
 
-
-
-
 ### Master node setting
 
 Linux
 
-|Runtime|Path to Unix domain socket|
-|--|--|
-|containerd|unix:///var/run/containerd/containerd.sock|
-|CRI-O|unix:///var/run/crio/crio.sock|
-|==Docker Engine(using cri-dockerd)==|unix:///var/run/cri-dockerd.sock|
-
+| Runtime                              | Path to Unix domain socket                 |
+| ------------------------------------ | ------------------------------------------ |
+| containerd                           | unix:///var/run/containerd/containerd.sock |
+| CRI-O                                | unix:///var/run/crio/crio.sock             |
+| ==Docker Engine(using cri-dockerd)== | unix:///var/run/cri-dockerd.sock           |
 
 ```bash
 sudo kubeadm config images pull --cri-socket /var/run/cri-dockerd.sock
@@ -266,7 +240,6 @@ kubectl get nodes -o wide
 kubectl get pod -A
 ```
 
-
 ### CNI install (master)
 
 ```bash
@@ -279,14 +252,9 @@ master node에서 kubeadm init 했을때 pod-network-cidr=192.168.0.0/16 설정�
 파일 다운로드 받은 후 cidr 10.244.0.0/16 -> 192.168.0.0/16 수정..
 ```
 
-
-
-
-
-
 ### Worker node join
 
 ```bash
 kubeadm join (control-plane ip):(control-plane port) --token (token) \
             --discovery-token-ca-cert-hash sha256(hash) --cri-socket /var/run/cri-dockerd.sock
-``` 
+```
