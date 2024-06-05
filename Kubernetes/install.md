@@ -166,9 +166,13 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kubelet kubeadm kubectl
 ```
 
-위에 내용으로 실행시 error 발생
+위에 내용으로 실행시 error 발생함
+
 찾아보니 24년 3월 기준으로 레거시 레포지토리 apt.kubernetes.io와  yum.kubernetes.io 에 대한 지원을 중단하고,
-pkgs.k8s.io 라는 새로운 레포지토리를 기준으로 패키지를 제공할 것이며, v1.24.0 이상의 버전만 제공
+
+pkgs.k8s.io 라는 새로운 레포지토리를 기준으로 패키지를 제공한다함.
+
+v1.24.0 이상의 버전만 제공
 
 ```bash
 [kubernetes]
